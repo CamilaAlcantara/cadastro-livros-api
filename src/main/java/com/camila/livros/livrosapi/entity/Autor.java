@@ -1,14 +1,12 @@
 package com.camila.livros.livrosapi.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Column;
-import jakarta.persistence.GenerationType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -24,5 +22,8 @@ public class Autor {
     @Column(name = "nome", nullable = false, length = 40)
     private String nome;
 
+    @ManyToMany(mappedBy = "autores")
+    @JsonIgnore
+    private List<Livro> livros;
 
 }
