@@ -37,7 +37,7 @@ public class AutorService {
     }
 
     @Transactional
-    public AutorResponseDTO inserir(AutorRequestDTO dto) {
+    public AutorResponseDTO incluir(AutorRequestDTO dto) {
 
         if (autorRepository.existsByNomeIgnoreCase(dto.nome())) {
             throw new BusinessException("Já existe autor cadastrado com esse nome.");

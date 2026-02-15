@@ -32,8 +32,8 @@ public class AutorController {
     }
 
     @PostMapping
-    public ResponseEntity<AutorResponseDTO> inserir(@Valid @RequestBody AutorRequestDTO dto) {
-        AutorResponseDTO criado = autorService.inserir(dto);
+    public ResponseEntity<AutorResponseDTO> incluir(@Valid @RequestBody AutorRequestDTO dto) {
+        AutorResponseDTO criado = autorService.incluir(dto);
 
         URI location = URI.create("/autores/" + criado.codAu());
 
