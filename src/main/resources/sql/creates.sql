@@ -47,3 +47,43 @@ CREATE TABLE livro_assunto (
    FOREIGN KEY (livro_cod_l) REFERENCES livro(cod_l),
    FOREIGN KEY (assunto_cod_as) REFERENCES assunto(cod_as)
 );
+
+
+--View para relatório lista livros por autor
+
+CREATE OR REPLACE VIEW vw_relatorio_livros_por_autor AS
+SELECT
+    a.cod_au AS cod_autor,
+    a.nome AS nome_autor,
+
+    l.cod_l AS cod_livro,
+    l.titulo,
+    l.editora,
+    l.edicao,
+    l.ano_publicacao,
+    l.valor,
+
+    COALESCE(
+            STRING_AGG(s.descricao, ', ' ORDER BY s.descricao),
+            ''
+    ) AS assuntos
+
+FROM autor a
+         JOIN livro_autor la
+              ON la.autor_cod_au = a.cod_au
+         JOIN livro l
+              ON l.cod_l = la.livro_cod_l
+         LEFT JOIN livro_assunto ls
+                   ON ls.livro_cod_l = l.cod_l
+         LEFT JOIN assunto s
+                   ON s.cod_as = ls.assunto_cod_as
+
+GROUP BY
+    a.cod_au,
+    a.nome,
+    l.cod_l,
+    l.titulo,
+    l.editora,
+    l.edicao,
+    l.ano_publicacao,
+    l.valor;
