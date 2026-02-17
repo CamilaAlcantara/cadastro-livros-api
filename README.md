@@ -156,6 +156,11 @@ GET /relatorios/livros-por-autor
 - O download do arquivo inicia automaticamente.
 
 ---
+## 🌐 Frontend
+
+O frontend da aplicação pode ser acessado no repositório:
+
+https://github.com/CamilaAlcantara/cadastro-livros-web
 
 ## 📬 Contato
 
