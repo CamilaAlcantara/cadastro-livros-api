@@ -159,5 +159,5 @@ GET /relatorios/livros-por-autor
 
 ## 📬 Contato
 
-Desenvolvido por **Camila**  
+Desenvolvido por **Camila Alcantara**  
 📧 E-mail: camila.m.a.alcantara@gmail.com
