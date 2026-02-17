@@ -67,8 +67,8 @@ As propriedades do banco utilizam variáveis de ambiente com valores padrão:
 
 ```properties
 spring.datasource.url=${DB_URL:jdbc:postgresql://localhost:5432/livros}
-spring.datasource.username=${DB_USER:postgres}
-spring.datasource.password=${DB_PASS:postgres}
+spring.datasource.username=${DB_USER}
+spring.datasource.password=${DB_PASSWORD}
 ```
 
 Caso não sejam definidas variáveis, os valores padrão acima serão utilizados.
